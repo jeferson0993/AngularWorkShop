@@ -1,27 +1,57 @@
-# AngularWorkShop
+# Sistema de Controle de vagas de trabalho
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.19.
+Uma aplicação WEB usando ANGULAR, na arquitetura MVC para complementar apresentação para a disciplina de *Novas Tecnologias em Desenvolvimento Web*, ministrada pelo professor **Marinaldo Oliveira Santos**, do curso **Tecnólogo em Sistemas para Internet**.
 
-## Development server
+***
+## [DEMOSTRAÇÃO DA APLICAÇÃO ONLINE](https://jeferson0993.github.io/angularjs)
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## [APRESENTAÇÃO ONLINE DO WORKSHOP](http://bit.do/angularjf)
+***
 
-## Code scaffolding
+## Sobre o projeto
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+### Esta é uma aplicação Web desenvolvida na arquitetura MVC e é composta das funções:
 
-## Build
+* ***Login**, Modulo empresa e candidato;*
+* ***Listar** informações de vagas de emprego, empresas e candidatos;*
+* ***Cadastrar** informações de vagas de emprego, empresas e candidatos;*
+* ***Editar** informações de vagas de emprego, empresas e candidatos;*
+* ***Excluir** vagas, empresas e candidatos;*
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+#### O projeto tem o objetivo de demonstrar as principais características do framework angular.
 
-## Running unit tests
+***
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+### Autor
 
-## Running end-to-end tests
+**Jeferson Ferreira** IFTO Palmas (2019/2)
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+* [Github](https://github.com/jeferson0993)
+* [Codepen](https://codepen.io/jeferson0993)
+* [Linkedin](https://www.linkedin.com/in/jeferson-ferreira-4a036b143)
+* [Portifolio](http://www.jeferson.ml)
+* jeferson0993@gmail.com
 
-## Further help
+---
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+### Licença
+Este projeto está licenciado sob a licença MIT - consulte o arquivo [LICENSE.md](LICENSE) para obter detalhes
+
+---
+
+### As tecnologias usadas na aplicação são:
+
+* ANGULAR
+* TYPESCRIPT
+* NODE
+* HTML 5
+* CSS 3
+* JAVASCRIPT
+
+---
+
+## Backend:
+
+## [web service desenvolvido com java e com persistencia de dados em MySql](https://github.com/jeferson0993/Web-Service-REST-java)
+
+---
