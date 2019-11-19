@@ -1,0 +1,61 @@
+<main>
+    <div *ngIf="vaga">
+        <div class="container">
+            <ly-card>
+                <ly-card-content>
+                    <h2 lyTyp="display1" gutterBottom>{{vaga.id}} - {{vaga.nome | uppercase}}</h2>
+                    <div class="flex">
+                        
+                        <ly-field>
+                            <input lyNativeControl placeholder="Cargo" [(ngModel)]="vaga.nome" >
+                        </ly-field>                          
+
+                        <ly-field>
+                            <input lyNativeControl placeholder="Remuneracao" [(ngModel)]="vaga.remuneracao" >
+                        </ly-field>
+                    
+                    </div>
+                    <div class="flex">
+
+                        <ly-field>
+                            <input lyNativeControl placeholder="Especificações do Cargo" [(ngModel)]="vaga.especificacaoDoCargo" >
+                        </ly-field>                          
+    
+                        <ly-field>
+                            <input lyNativeControl placeholder="Vale Transporte" [(ngModel)]="vaga.valeTransporte" >
+                        </ly-field>
+
+                    </div>
+                    <div class="flex">
+
+                        <ly-field>
+                            <input lyNativeControl placeholder="Vale Refeição" [(ngModel)]="vaga.valeRefeicao" >
+                        </ly-field>
+
+                        <ly-field>
+                            <input lyNativeControl placeholder="Empresa id" [(ngModel)]="vaga.empresa_id" >
+                        </ly-field>
+
+                    </div>
+                    <div class="flex">
+
+                            <ly-field>
+                                <input lyNativeControl placeholder="Turno" [(ngModel)]="vaga.turno" >
+                            </ly-field>
+    
+                            <ly-field>
+                                <input lyNativeControl placeholder="Forma de contratação" [(ngModel)]="vaga.formaContratacao" >
+                            </ly-field>
+                            
+                    </div>
+                </ly-card-content>
+
+                <ly-card-actions disableActionSpacing class="flex" style="justify-content: space-between; margin-top: 5ch;">
+                    <button ly-button outlined color="primary" (click)="save()">Salvar</button>
+                    <button ly-button outlined color="warn" (click)="goBack()">Cancelar</button>
+                </ly-card-actions>
+
+            </ly-card>
+        </div>
+    </div>
+</main>

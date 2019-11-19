@@ -1,0 +1,19 @@
+<ly-toolbar position="static" bg="primary" [elevation]="3">
+
+  <h1 [lyTyp]="'title'" [withClass]="classes.grow">{{ title }}</h1>
+
+  <button ly-button routerLink="/home">
+    Home
+  </button>
+
+  <button ly-button routerLink="/empresas">
+    Empresas
+  </button>
+
+  <button ly-button routerLink="/">
+    Candidatos
+  </button>
+
+</ly-toolbar>
+
+<router-outlet></router-outlet>

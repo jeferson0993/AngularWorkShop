@@ -1,0 +1,23 @@
+<main>
+
+    <h2 lyTyp="display2" gutterBottom>Empresas</h2>
+
+    <ly-card>
+        <ly-card-content>
+            Nome para a empresa:
+            <input #empresa placeholder="Digite o Nome da empresa:" />
+            <button ly-button raised bg="primary" (click)="add(empresa.value); empresa.value=''">Cadastrar</button>
+        </ly-card-content>
+    </ly-card>
+
+    <ly-card *ngFor="let empresa of empresas" class="flex">
+        <ly-card-content>
+            <h2 lyTyp="title" gutterBottom>{{ empresa.id }} - {{ empresa.razaoSocial }}</h2>
+        </ly-card-content>
+        <ly-card-actions disableActionSpacing>
+            <button ly-button outlined color="primary" routerLink="/empresa-detail/{{empresa.id}}">Editar</button>
+            <button ly-button outlined color="warn" title="delete empresa" (click)="delete(empresa)">Excluir</button>
+        </ly-card-actions>
+    </ly-card>
+
+</main>

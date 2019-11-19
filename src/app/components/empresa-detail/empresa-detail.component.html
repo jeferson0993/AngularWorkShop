@@ -1,0 +1,85 @@
+<main style="margin-top: 5pt;">
+    <div *ngIf="empresa">
+        <div class="container">
+            
+            <ly-card>
+
+                <ly-card-content>
+                    <h2 lyTyp="display1" gutterBottom>{{ empresa.id }} - {{ empresa.razaoSocial | uppercase }}</h2>
+                    <div class="flex">
+                        <input [(ngModel)]="empresa.razaoSocial" placeholder="razao social" style="width: 100%;" />
+                    </div>
+                    <div class="flex">
+                        <input [(ngModel)]="empresa.cnpj" placeholder="cnpj" />
+                        <input [(ngModel)]="empresa.endereco" placeholder="endereco" />
+                    </div>
+                    <div class="flex">                    
+                        <input [(ngModel)]="empresa.bairro" placeholder="bairro" />
+                        <input [(ngModel)]="empresa.uf" placeholder="uf" />
+                    </div>
+                    <div class="flex">                    
+                        <input [(ngModel)]="empresa.cidade" placeholder="cidade" />
+                        <input [(ngModel)]="empresa.cep" placeholder="cep" />
+                    </div>
+                    <div class="flex">                    
+                        <input [(ngModel)]="empresa.email" placeholder="email" />
+                        <input [(ngModel)]="empresa.telefone" placeholder="telefone" />
+                    </div>
+                </ly-card-content>
+
+                <ly-card-content>
+                    <ly-card>
+                        <ly-card-content class="flex">
+                            <span lyTyp="headline" gutterBottom>Nova vaga:</span>
+                            <input #vaga placeholder="Digite a Nova Vaga:" />
+                            <div>
+                                <button ly-button raised bg="primary" (click)="add(vaga.value); vaga.value=''">Cadastrar</button>
+                            </div>
+                        </ly-card-content>
+                    </ly-card>
+                </ly-card-content>
+
+                <ly-card-content>
+                    <section *ngIf="empresa.vagas !== null && empresa.vagas !== undefine">
+                        <h2 lyTyp="display2" gutterBottom>Vagas</h2>
+                        <div *ngIf="empresa.vagas.length> 1; else elseBlock">
+                            <ly-card *ngFor="let vaga of empresa.vagas">
+                                <ly-card-content class="flex" style="justify-content: space-between;">
+                                    <div lyTyp="title" gutterBottom>{{ vaga.nome }}</div>
+                                    <span>
+                                        <button style="margin-left: 2ch" ly-button outlined color="white" routerLink="/vaga-detail/{{vaga.id}}">Editar</button>
+                                        <button ly-button outlined color="warn" title="delete vaga" (click)="delete(vaga)">Excluir</button>
+                                    </span>
+                                </ly-card-content>
+                            </ly-card>
+                        </div>
+
+                        <ng-template #elseBlock>
+                            <div>
+                                <ly-card class="flex">
+
+                                    <ly-card-content style="width: 80%;">
+                                        <h2 lyTyp="title" gutterBottom>{{ empresa.vagas.nome }}</h2>
+                                    </ly-card-content>
+
+                                    <ly-card-actions disableActionSpacing>
+                                        <button ly-button outlined color="white" routerLink="/vaga-detail/{{vaga.id}}">Editar</button>
+                                        <button ly-button outlined color="warn" title="delete vaga" (click)="delete(vaga)"  style="margin-left: 5ch;">Excluir</button>
+                                    </ly-card-actions>
+
+                                </ly-card>
+                            </div>
+                        </ng-template>
+                    </section>
+                </ly-card-content>
+
+                <ly-card-actions disableActionSpacing>
+                    <button ly-button outlined color="primary" (click)="save()">Salvar</button>
+                    <button ly-button outlined color="warn" (click)="goBack()" style="margin-left: 5ch;">Voltar</button>
+                </ly-card-actions>
+
+            </ly-card>
+
+        </div>
+    </div>
+</main>

@@ -1,0 +1,14 @@
+.flex {
+    display: flex;
+    justify-content: space-around;
+}
+
+.flex input {
+    width: 45%;
+    margin-bottom: 5ch;
+}
+
+ly-card-content section > * > *:hover {
+    background: #6200EE;
+    color: #fff;
+}
