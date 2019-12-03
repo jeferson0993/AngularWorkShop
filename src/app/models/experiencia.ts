@@ -4,4 +4,5 @@ export class Experiencia {
   funcoes: string;
   dataEntrada: string;
   dataSaida: string;
+  candidato_id: number;
 }

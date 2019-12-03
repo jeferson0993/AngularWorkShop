@@ -1,0 +1,29 @@
+main {
+    min-height: 70vh;
+  }
+  
+  main div, main ul li {
+    width: 99%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1ch;
+  }
+  
+  main div {
+    height: 5ch;
+    align-items: baseline;
+  }
+  
+  main ul li h3 {
+    font-weight: lighter;
+  }
+
+  .flex {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  button {
+    margin: 1ch;
+  }

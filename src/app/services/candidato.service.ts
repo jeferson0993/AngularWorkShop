@@ -16,11 +16,11 @@ export class CandidatoService {
 
   constructor(private http: HttpClient) { }
 
-  getCandidatos (): Observable<Candidato[]> {
-    return this.http.get<Candidato[]>(this.CandidatosUrl)
+  getCandidatos (): Observable<any> {
+    return this.http.get<any>(this.CandidatosUrl)
       .pipe(
         tap(_ => this.log('fetched Candidatos')),
-        catchError(this.handleError<Candidato[]>('getCandidatos', []))
+        catchError(this.handleError<any>('getCandidatos', []))
       );
   }
 

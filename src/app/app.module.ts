@@ -26,10 +26,10 @@ import { LyTypographyModule }             from '@alyle/ui/typography';
 import { MinimaLight, MinimaDark }        from '@alyle/ui/themes/minima';
 import { LyResizingCroppingImageModule }  from '@alyle/ui/resizing-cropping-images';
 import { HomeComponent } from './components/home/home.component';
-import { VagasListComponent } from './components/vagas-list/vagas-list.component';
 import { CandidatosListComponent } from './components/candidatos-list/candidatos-list.component';
 import { CandidatoDetailComponent } from './components/candidato-detail/candidato-detail.component';
 import { VagaDetailComponent } from './components/vaga-detail/vaga-detail.component';
+import { ExperienciaDetailComponent } from './components/experiencia-detail/experiencia-detail.component';
 
 
 @NgModule({
@@ -38,10 +38,10 @@ import { VagaDetailComponent } from './components/vaga-detail/vaga-detail.compon
     EmpresasListComponent,
     EmpresaDetailComponent,
     HomeComponent,
-    VagasListComponent,
     CandidatosListComponent,
     CandidatoDetailComponent,
-    VagaDetailComponent
+    VagaDetailComponent,
+    ExperienciaDetailComponent
   ],
   imports: [
     LyDividerModule,

@@ -4,8 +4,9 @@
 
     <ly-card>
         <ly-card-content>
-            Nome para a empresa:
-            <input #empresa placeholder="Digite o Nome da empresa:" />
+            <ly-field style="width: 90%;">
+                <input lyNativeControl #empresa placeholder="Digite o Nome da empresa:" />
+            </ly-field>
             <button ly-button raised bg="primary" (click)="add(empresa.value); empresa.value=''">Cadastrar</button>
         </ly-card-content>
     </ly-card>

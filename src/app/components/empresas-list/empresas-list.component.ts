@@ -1,8 +1,23 @@
-import { Component, OnInit } from '@angular/core';
-
+import { Component, OnInit, Input } from '@angular/core';
+import { LyTheme2 } from "@alyle/ui";
 import { Empresa } from "../../models/empresa";
 import { EmpresaService } from "../../services/empresa.service";
 
+const styles = () => ({
+  root: {
+    button: {
+      marginAfter: '1em',
+      marginTop: '.5em',
+      marginBottom: '.5em'
+    }
+  },
+  row: {
+    display: 'flex',
+    flexWrap: 'wrap',
+    marginBottom: '.5em',
+    alignItems: 'center'
+  }
+});
 @Component({
   selector: 'app-empresas-list',
   templateUrl: './empresas-list.component.html',
@@ -10,9 +25,15 @@ import { EmpresaService } from "../../services/empresa.service";
 })
 export class EmpresasListComponent implements OnInit {
 
+  readonly classes = this.theme.addStyleSheet(styles);
   empresas: Empresa[];
 
-  constructor(private empresaService: EmpresaService) { }
+  @Input() empresa: Empresa;
+  
+  constructor(
+    private empresaService: EmpresaService, 
+    private theme: LyTheme2
+    ) { }
 
   ngOnInit() {
     this.getempresas();
@@ -33,7 +54,7 @@ export class EmpresasListComponent implements OnInit {
     if (!razaoSocial) { return; }
     this.empresaService.addEmpresa({ razaoSocial } as Empresa)
       .subscribe(empresa => {
-        this.empresas.push(empresa);
+        this.getempresas();
       });
   }
 

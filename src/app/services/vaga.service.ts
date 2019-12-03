@@ -58,7 +58,7 @@ export class VagaService {
   addVaga (Vaga: Vaga, empresa_id: number): Observable<Vaga> {
     Vaga.empresa_id = empresa_id;
     return this.http.post<Vaga>(this.vagasUrl, Vaga, httpOptions).pipe(
-      tap((newVaga: Vaga) => this.log(`added Vaga => id=${newVaga.nome}`)),
+      tap((newVaga: Vaga) => this.log(`added Vaga => ${newVaga.nome}`)),
       catchError(this.handleError<Vaga>('addVaga'))
     );
   }

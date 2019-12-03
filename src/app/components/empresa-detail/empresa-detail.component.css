@@ -3,7 +3,7 @@
     justify-content: space-around;
 }
 
-.flex input {
+.flex ly-field {
     width: 45%;
     margin-bottom: 5ch;
 }

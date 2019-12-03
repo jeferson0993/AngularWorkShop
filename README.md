@@ -54,4 +54,8 @@ Este projeto está licenciado sob a licença MIT - consulte o arquivo [LICENSE.m
 
 ## [web service desenvolvido com java e com persistencia de dados em MySql](https://github.com/jeferson0993/Web-Service-REST-java)
 
+### API END POINTS LOCAIS:
+http://localhost:8080/WebServiceWorkshop/candidatos
+http://localhost:8080/WebServiceWorkshop/empresas
+
 ---

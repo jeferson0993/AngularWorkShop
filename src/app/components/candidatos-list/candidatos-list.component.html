@@ -1,1 +1,24 @@
-<p>candidatos-list works!</p>
+<main>
+
+    <h2 lyTyp="display2" gutterBottom>candidatos</h2>
+
+    <ly-card>
+        <ly-card-content style="padding: 5ch;">
+            <ly-field style="width: 90%;">
+                <input lyNativeControl #candidato placeholder="Digite o Nome do novo candidato:" />
+            </ly-field>
+            <button ly-button raised bg="primary" (click)="add(candidato.value); candidato.value=''">Cadastrar</button>
+        </ly-card-content>
+    </ly-card>
+
+    <ly-card *ngFor="let candidato of candidatos" class="flex">
+        <ly-card-content>
+            <h2 lyTyp="title" gutterBottom>{{ candidato.id }} - {{ candidato.nome }}</h2>
+        </ly-card-content>
+        <ly-card-actions disableActionSpacing>
+            <button ly-button outlined color="primary" routerLink="/candidato-detail/{{candidato.id}}">Editar</button>
+            <button ly-button outlined color="warn" title="delete candidato" (click)="delete(candidato)">Excluir</button>
+        </ly-card-actions>
+    </ly-card>
+
+</main>

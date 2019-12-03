@@ -1,11 +1,36 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
+import { LyTheme2, shadowBuilder, ThemeVariables } from '@alyle/ui';
 
 import { Vaga } from '../../models/vaga';
 import { Empresa } from '../../models/empresa';
-import { VagaService } from "../../services/vaga.service";
+import { VagaService } from '../../services/vaga.service';
 import { EmpresaService } from '../../services/empresa.service';
+
+const styles = (theme: ThemeVariables) => ({
+  root: {
+    button: {
+      marginAfter: '1em',
+      marginTop: '.5em',
+      marginBottom: '.5em'
+    }
+  },
+  row: {
+    display: 'flex',
+    flexWrap: 'wrap',
+    marginBottom: '.5em',
+    alignItems: 'center'
+  },
+  item: {
+    padding: '16px',
+    textAlign: 'center',
+    background: theme.background.secondary,
+    boxShadow: shadowBuilder(1),
+    borderRadius: '4px',
+    height: '100%'
+  }
+});
 
 @Component({
   selector: 'app-empresa-detail',
@@ -14,6 +39,7 @@ import { EmpresaService } from '../../services/empresa.service';
 })
 export class EmpresaDetailComponent implements OnInit {
 
+  readonly classes = this.theme.addStyleSheet(styles);
   Vagas: Vaga[];
 
   @Input() empresa: Empresa;
@@ -23,7 +49,8 @@ export class EmpresaDetailComponent implements OnInit {
     private route: ActivatedRoute,
     private vagaService: VagaService,
     private empresaService: EmpresaService,
-    private location: Location
+    private location: Location,
+    private theme: LyTheme2
   ) {}
 
   ngOnInit(): void {

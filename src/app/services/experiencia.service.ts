@@ -56,8 +56,9 @@ export class ExperienciaService {
   }
 
   addexperiencia (experiencia: Experiencia): Observable<Experiencia> {
+    console.log("experiencia ser inserida: ", experiencia);
     return this.http.post<Experiencia>(this.experienciasUrl, experiencia, httpOptions).pipe(
-      tap((newexperiencia: Experiencia) => this.log(`added experiencia => id=${newexperiencia.id}`)),
+      tap((newexperiencia: Experiencia) => this.log(`added experiencia => ${newexperiencia.cargo}`)),
       catchError(this.handleError<Experiencia>('addexperiencia'))
     );
   }
