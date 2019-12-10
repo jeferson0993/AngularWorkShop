@@ -30,6 +30,9 @@ import { CandidatosListComponent } from './components/candidatos-list/candidatos
 import { CandidatoDetailComponent } from './components/candidato-detail/candidato-detail.component';
 import { VagaDetailComponent } from './components/vaga-detail/vaga-detail.component';
 import { ExperienciaDetailComponent } from './components/experiencia-detail/experiencia-detail.component';
+import { VagaSearchComponent } from './components/vaga-search/vaga-search.component';
+import { EmpresaSearchComponent } from './components/empresa-search/empresa-search.component';
+import { CandidatoSearchComponent } from './components/candidato-search/candidato-search.component';
 
 
 @NgModule({
@@ -41,7 +44,10 @@ import { ExperienciaDetailComponent } from './components/experiencia-detail/expe
     CandidatosListComponent,
     CandidatoDetailComponent,
     VagaDetailComponent,
-    ExperienciaDetailComponent
+    ExperienciaDetailComponent,
+    VagaSearchComponent,
+    EmpresaSearchComponent,
+    CandidatoSearchComponent
   ],
   imports: [
     LyDividerModule,

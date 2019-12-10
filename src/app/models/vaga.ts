@@ -8,5 +8,6 @@ export class Vaga {
   turno: string;
   formaContratacao: string;
   uf: string;
+  cidade: string;
   empresa_id: number;
 }

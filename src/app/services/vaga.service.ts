@@ -12,11 +12,11 @@ const httpOptions = {
 @Injectable({ providedIn: 'root' })
 export class VagaService {
 
-  private vagasUrl = 'http://localhost:8080/WebServiceWorkshop/vagas';
+  private vagasUrl = 'http://localhost:8080/AngularWorkshopBackend/vagas';
 
   constructor(private http: HttpClient) { }
 
-  getVagas (): Observable<Vaga[]> {
+  getVagas (): Observable<any> {
     return this.http.get<Vaga[]>(this.vagasUrl)
       .pipe(
         tap(_ => this.log('fetched Vagas')),
@@ -49,12 +49,38 @@ export class VagaService {
     if (!term.trim()) {
       return of([]);
     }
-    return this.http.get<Vaga[]>(`${this.vagasUrl}/?cargo=${term}`).pipe(
+    return this.http.get<Vaga[]>(this.vagasUrl).pipe(
       tap(_ => this.log(`found Vagas matching "${term}"`)),
       catchError(this.handleError<Vaga[]>('searchVagas', []))
     );
   }
 
+  searchVagasByCargo (cargo: string): Observable<any> {
+    console.log(`pesquisa: ${this.vagasUrl}/cargo/${cargo}`);
+    return this.http.get<Vaga[]>(`${this.vagasUrl}/cargo/${cargo}`)
+      .pipe(
+        tap(_ => this.log('fetched Vagas')),
+        catchError(this.handleError<Vaga[]>('getVagas', []))
+      );
+  }
+
+  searchVagasByEstado (estado: string): Observable<any> {
+    console.log(`pesquisa: ${this.vagasUrl}/cargo/empresa/estado/${estado}`);
+    return this.http.get<Vaga[]>(`${this.vagasUrl}/cargo/empresa/estado/${estado}`)
+      .pipe(
+        tap(_ => this.log('fetched Vagas')),
+        catchError(this.handleError<Vaga[]>('getVagas', []))
+      );
+  }
+
+  searchVagasByCidade (cidade: string): Observable<any> {
+    return this.http.get<Vaga[]>(`${this.vagasUrl}/cargo/empresa/estado/cidade/${cidade}`)
+      .pipe(
+        tap(_ => this.log('fetched Vagas')),
+        catchError(this.handleError<Vaga[]>('getVagas', []))
+      );
+  }
+  
   addVaga (Vaga: Vaga, empresa_id: number): Observable<Vaga> {
     Vaga.empresa_id = empresa_id;
     return this.http.post<Vaga>(this.vagasUrl, Vaga, httpOptions).pipe(

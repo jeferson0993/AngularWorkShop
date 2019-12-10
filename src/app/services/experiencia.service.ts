@@ -12,7 +12,7 @@ const httpOptions = {
 @Injectable({ providedIn: 'root' })
 export class ExperienciaService {
 
-  private experienciasUrl = 'http://localhost:8080/WebServiceWorkshop/experiencias';
+  private experienciasUrl = 'http://localhost:8080/AngularWorkshopBackend/experiencias';
 
   constructor(private http: HttpClient) { }
 
@@ -55,8 +55,9 @@ export class ExperienciaService {
     );
   }
 
-  addexperiencia (experiencia: Experiencia): Observable<Experiencia> {
-    console.log("experiencia ser inserida: ", experiencia);
+  addexperiencia (experiencia: Experiencia, candidato_id: number): Observable<Experiencia> {
+    console.log("experiencia a ser inserida: ", experiencia);
+    experiencia.candidato_id = candidato_id;
     return this.http.post<Experiencia>(this.experienciasUrl, experiencia, httpOptions).pipe(
       tap((newexperiencia: Experiencia) => this.log(`added experiencia => ${newexperiencia.cargo}`)),
       catchError(this.handleError<Experiencia>('addexperiencia'))

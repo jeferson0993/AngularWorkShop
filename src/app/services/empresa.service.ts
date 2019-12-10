@@ -12,7 +12,7 @@ const httpOptions = {
 @Injectable({ providedIn: 'root' })
 export class EmpresaService {
 
-  private empresasUrl = 'http://localhost:8080/WebServiceWorkshop/empresas';
+  private empresasUrl = 'http://localhost:8080/AngularWorkshopBackend/empresas';
 
   constructor(private http: HttpClient) { }
 
@@ -45,14 +45,36 @@ export class EmpresaService {
     );
   }
 
-  searchEmpresas(term: string): Observable<Empresa[]> {
-    if (!term.trim()) {
-      return of([]);
-    }
-    return this.http.get<Empresa[]>(`${this.empresasUrl}/?razaoSocial=${term}`).pipe(
-      tap(_ => this.log(`found Empresas matching "${term}"`)),
-      catchError(this.handleError<Empresa[]>('searchEmpresas', []))
-    );
+  searchEmpresasByRazaoSocial(razaoSocial: string): Observable<any> {
+    return this.http.get<Empresa[]>(`${this.empresasUrl}/razao-social/${razaoSocial}`)
+      .pipe(
+        tap(_ => this.log('fetched Empresas')),
+        catchError(this.handleError<Empresa[]>('getEmpresas', []))
+      );
+  }
+
+  searchEmpresasByEstado(estado: string): Observable<any> {
+    return this.http.get<Empresa[]>(`${this.empresasUrl}/razao-social/estado/${estado}`)
+      .pipe(
+        tap(_ => this.log('fetched Empresas')),
+        catchError(this.handleError<Empresa[]>('getEmpresas', []))
+      );
+  }
+
+  searchEmpresasByCidade(cidade: string): Observable<any> {
+    return this.http.get<Empresa[]>(`${this.empresasUrl}/razao-social/estado/cidade/${cidade}`)
+      .pipe(
+        tap(_ => this.log('fetched Empresas')),
+        catchError(this.handleError<Empresa[]>('getEmpresas', []))
+      );
+  }
+
+  searchEmpresasByBairro(bairro: string): Observable<any> {
+    return this.http.get<Empresa[]>(`${this.empresasUrl}/razao-social/estado/cidade/bairro/${bairro}`)
+      .pipe(
+        tap(_ => this.log('fetched Empresas')),
+        catchError(this.handleError<Empresa[]>('getEmpresas', []))
+      );
   }
 
   addEmpresa (Empresa: Empresa): Observable<Empresa> {

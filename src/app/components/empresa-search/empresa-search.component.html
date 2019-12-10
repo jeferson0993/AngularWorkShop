@@ -1,0 +1,63 @@
+<div id="empresa-search-component">
+  
+        <ly-card>
+            <ly-card-content style="padding: 2ch;">
+                <h2 lyTyp="headline" gutterBottom color="primary">Pesquisar empresas por razaoSocial</h2>
+                <ly-field style="width: 100%;">
+                    <input lyNativeControl #razaoSocial placeholder="Digite o nome da empresa para pesquisar:" />
+                    <button ly-button raised bg="primary" (click)="searchByRazaoSocial(razaoSocial.value); razaoSocial.value=''">Pesquisar</button>
+                </ly-field>
+            </ly-card-content>
+        </ly-card>
+        
+        <ly-card>
+            <ly-card-content style="padding: 2ch;">
+                <h2 lyTyp="headline" gutterBottom color="primary">Pesquisar empresas por cidade</h2>
+                <ly-field style="width: 100%;">
+                    <input lyNativeControl #cidade placeholder="Digite a cidade para pesquisar:" />
+                    <button ly-button raised bg="primary" (click)="searchByCidade(cidade.value); cidade.value=''">Pesquisar</button>
+                </ly-field>
+            </ly-card-content>
+        </ly-card>
+        
+        <ly-card>
+            <ly-card-content style="padding: 2ch;">
+                <h2 lyTyp="headline" gutterBottom color="primary">Pesquisar empresas por estado</h2>
+                <ly-field style="width: 100%;">
+                    <input lyNativeControl #estado placeholder="Digite o estado para pesquisar:" />
+                    <button ly-button raised bg="primary" (click)="searchByEstado(estado.value); estado.value=''">Pesquisar</button>
+                </ly-field>
+            </ly-card-content>
+        </ly-card>
+        
+        <ly-card>
+            <ly-card-content>
+                <section *ngIf="empresas !== null && empresas !== undefine">
+                    <h2 lyTyp="display2" gutterBottom>empresas</h2>
+                    <div *ngIf="empresas.length > 1; else elseBlock">
+                        <ly-card *ngFor="let empresa of empresas">
+                            <ly-card-content class="flex" style="justify-content: space-between;">
+                                <h2 lyTyp="title" gutterBottom>{{ empresa.razaoSocial }}</h2>
+                                <h5 lyTyp="body1">Cidade: {{empresa.cidade}}</h5>
+                                <h5 lyTyp="body1">Estado: {{empresa.uf}}</h5>
+                            </ly-card-content>
+                        </ly-card>
+                    </div>
+    
+                    <ng-template #elseBlock>
+                        <div>
+                            <ly-card class="flex">
+    
+                                <ly-card-content style="width: 80%;">
+                                    <h2 lyTyp="title" gutterBottom>{{ empresas.razaoSocial }}</h2>
+                                    <h5 lyTyp="body1">Cidade: {{empresas.cidade}}</h5>
+                                    <h5 lyTyp="body1">Estado: {{empresas.uf}}</h5>
+                                </ly-card-content>
+    
+                            </ly-card>
+                        </div>
+                    </ng-template>
+                </section>
+            </ly-card-content>
+        </ly-card>
+    </div>

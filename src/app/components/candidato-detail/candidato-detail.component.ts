@@ -79,14 +79,13 @@ export class CandidatoDetailComponent implements OnInit {
     cargo = cargo.trim();
     let candidato_id = this.candidato.id;
     if (!cargo) { return; }
-    this.experienciaService.addexperiencia({ cargo, candidato_id } as Experiencia)
+    this.experienciaService.addexperiencia({cargo} as Experiencia, candidato_id)
       .subscribe(experiencia => {
         this.getcandidato();
       });
   }
 
   delete(experiencia: Experiencia): void {
-    //this.experiencias = this.experiencias.filter(h => h !== experiencia);
     this.experienciaService.deleteexperiencia(experiencia)
     .subscribe(experiencia => {
       this.getcandidato();

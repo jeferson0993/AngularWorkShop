@@ -12,11 +12,11 @@ const httpOptions = {
 @Injectable({ providedIn: 'root' })
 export class CandidatoService {
 
-  private CandidatosUrl = 'http://localhost:8080/WebServiceWorkshop/candidatos';
+  private CandidatosUrl = 'http://localhost:8080/AngularWorkshopBackend/candidatos';
 
   constructor(private http: HttpClient) { }
 
-  getCandidatos (): Observable<any> {
+  getCandidatos(): Observable<any> {
     return this.http.get<any>(this.CandidatosUrl)
       .pipe(
         tap(_ => this.log('fetched Candidatos')),
@@ -36,7 +36,7 @@ export class CandidatoService {
         catchError(this.handleError<Candidato>(`getCandidato id=${id}`))
       );
   }
-  
+
   getCandidato(id: number): Observable<Candidato> {
     const url = `${this.CandidatosUrl}/${id}`;
     return this.http.get<Candidato>(url).pipe(
@@ -55,14 +55,35 @@ export class CandidatoService {
     );
   }
 
-  addCandidato (Candidato: Candidato): Observable<Candidato> {
+  searchCandidatosByEstadoCivil(estadoCivil: string): Observable<any> {
+    return this.http.get<Candidato[]>(`${this.CandidatosUrl}/nome/sexo/estado-civil/${estadoCivil}`).pipe(
+      tap(_ => this.log(`found Candidatos matching "${estadoCivil}"`)),
+      catchError(this.handleError<Candidato[]>('searchCandidatos', []))
+    );
+  }
+
+  searchCandidatosBySexo(sexo: string): Observable<any> {
+    return this.http.get<Candidato[]>(`${this.CandidatosUrl}/nome/sexo/${sexo}`).pipe(
+      tap(_ => this.log(`found Candidatos matching "${sexo}"`)),
+      catchError(this.handleError<Candidato[]>('searchCandidatos', []))
+    );
+  }
+
+  searchCandidatosByNome(nome: string): Observable<any> {
+    return this.http.get<Candidato[]>(`${this.CandidatosUrl}/nome/${nome}`).pipe(
+      tap(_ => this.log(`found Candidatos matching "${nome}"`)),
+      catchError(this.handleError<Candidato[]>('searchCandidatos', []))
+    );
+  }
+
+  addCandidato(Candidato: Candidato): Observable<Candidato> {
     return this.http.post<Candidato>(this.CandidatosUrl, Candidato, httpOptions).pipe(
       tap((newCandidato: Candidato) => this.log(`added Candidato => id=${newCandidato.id}`)),
       catchError(this.handleError<Candidato>('addCandidato'))
     );
   }
 
-  deleteCandidato (Candidato: Candidato | number): Observable<Candidato> {
+  deleteCandidato(Candidato: Candidato | number): Observable<Candidato> {
     const id = typeof Candidato === 'number' ? Candidato : Candidato.id;
     const url = `${this.CandidatosUrl}/${id}`;
 
@@ -72,14 +93,14 @@ export class CandidatoService {
     );
   }
 
-  updateCandidato (Candidato: Candidato): Observable<any> {
+  updateCandidato(Candidato: Candidato): Observable<any> {
     return this.http.put(this.CandidatosUrl, Candidato, httpOptions).pipe(
       tap(_ => this.log(`updated Candidato id=${Candidato.id}`)),
       catchError(this.handleError<any>('updateCandidato'))
     );
   }
 
-  private handleError<T> (operation = 'operation', result?: T) {
+  private handleError<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
       console.error(error);
       this.log(`${operation} failed: ${error.message}`);

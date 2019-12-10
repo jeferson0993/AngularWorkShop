@@ -1,0 +1,65 @@
+<div id="vaga-search-component">
+  
+    <ly-card>
+        <ly-card-content style="padding: 2ch;">
+            <h2 lyTyp="headline" gutterBottom color="primary">Pesquisar Vagas por cargo</h2>
+            <ly-field style="width: 100%;">
+                <input lyNativeControl #cargo placeholder="Digite o cargo para pesquisar:" />
+                <button ly-button raised bg="primary" (click)="searchByCargo(cargo.value); cargo.value=''">Pesquisar</button>
+            </ly-field>
+        </ly-card-content>
+    </ly-card>
+    
+    <ly-card>
+        <ly-card-content style="padding: 2ch;">
+            <h2 lyTyp="headline" gutterBottom color="primary">Pesquisar Vagas por cidade</h2>
+            <ly-field style="width: 100%;">
+                <input lyNativeControl #cidade placeholder="Digite a cidade para pesquisar:" />
+                <button ly-button raised bg="primary" (click)="searchByCidade(cidade.value); cidade.value=''">Pesquisar</button>
+            </ly-field>
+        </ly-card-content>
+    </ly-card>
+    
+    <ly-card>
+        <ly-card-content style="padding: 2ch;">
+            <h2 lyTyp="headline" gutterBottom color="primary">Pesquisar Vagas por estado</h2>
+            <ly-field style="width: 100%;">
+                <input lyNativeControl #estado placeholder="Digite o estado para pesquisar:" />
+                <button ly-button raised bg="primary" (click)="searchByEstado(estado.value); estado.value=''">Pesquisar</button>
+            </ly-field>
+        </ly-card-content>
+    </ly-card>
+    
+    <ly-card>
+        <ly-card-content>
+            <section *ngIf="vagas !== null && vagas !== undefine">
+                <h2 lyTyp="display2" gutterBottom>Vagas</h2>
+                <div *ngIf="vagas.length > 1; else elseBlock">
+                    <ly-card *ngFor="let vaga of vagas">
+                        <ly-card-content class="flex" style="justify-content: space-between;">
+                            <h2 lyTyp="title" gutterBottom>{{ vaga.nome }}</h2>
+                            <h5 lyTyp="body1">{{vaga.especificacaoDoCargo}}</h5>
+                            <h5 lyTyp="body1">Cidade: {{vaga.cidade}}</h5>
+                            <h5 lyTyp="body1">Estado: {{vaga.uf}}</h5>
+                        </ly-card-content>
+                    </ly-card>
+                </div>
+
+                <ng-template #elseBlock>
+                    <div>
+                        <ly-card class="flex">
+
+                            <ly-card-content style="width: 80%;">
+                                <h2 lyTyp="title" gutterBottom>{{ vagas.nome }}</h2>
+                                <h5 lyTyp="body1">{{vagas.especificacaoDoCargo}}</h5>
+                                <h5 lyTyp="body1">Cidade: {{vagas.cidade}}</h5>
+                                <h5 lyTyp="body1">Estado: {{vagas.uf}}</h5>
+                            </ly-card-content>
+
+                        </ly-card>
+                    </div>
+                </ng-template>
+            </section>
+        </ly-card-content>
+    </ly-card>
+</div>

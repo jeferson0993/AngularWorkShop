@@ -8,6 +8,9 @@ import { VagaDetailComponent } from "./components/vaga-detail/vaga-detail.compon
 import { CandidatosListComponent } from "./components/candidatos-list/candidatos-list.component";
 import { CandidatoDetailComponent } from "./components/candidato-detail/candidato-detail.component";
 import { ExperienciaDetailComponent } from "./components/experiencia-detail/experiencia-detail.component";
+import { EmpresaSearchComponent } from './components/empresa-search/empresa-search.component';
+import { VagaSearchComponent } from './components/vaga-search/vaga-search.component';
+import { CandidatoSearchComponent } from './components/candidato-search/candidato-search.component';
 
 
 const routes: Routes = [
@@ -18,7 +21,11 @@ const routes: Routes = [
   { path: 'vaga-detail/:id', component: VagaDetailComponent },
   { path: 'candidatos', component: CandidatosListComponent },
   { path: 'candidato-detail/:id', component: CandidatoDetailComponent },
-  { path: 'experiencia-detail/:id', component: ExperienciaDetailComponent }
+  { path: 'experiencia-detail/:id', component: ExperienciaDetailComponent },
+
+  {path: 'empresas-search', component: EmpresaSearchComponent},
+  {path: 'vagas-search', component: VagaSearchComponent},
+  {path: 'candidatos-search', component: CandidatoSearchComponent}
 ];
 
 @NgModule({

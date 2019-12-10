@@ -5,30 +5,22 @@
                 <ly-card-content>
                     <h2 lyTyp="display1" gutterBottom>{{experiencia.id}} - {{experiencia.cargo | uppercase}}</h2>
                     <div class="flex">                        
-                        <ly-field style="width: 90%;">
+                        
+                        <ly-field style="width: 80%;">
                             <input lyNativeControl placeholder="Cargo" [(ngModel)]="experiencia.cargo" >
                         </ly-field>                    
-                    </div>
-                    <div class="flex">
-
-                        <ly-field>
-                            <input lyNativeControl placeholder="Data de início" [(ngModel)]="experiencia.dataEntrada" >
-                        </ly-field>                          
-    
-                        <ly-field>
-                            <input lyNativeControl placeholder="Data de saida" [(ngModel)]="experiencia.dataSaida" >
-                        </ly-field>
-
-                    </div>
-                    <div class="flex">
-
+                        
                         <ly-field>
                             <input lyNativeControl placeholder="Candidato id" [(ngModel)]="experiencia.candidato_id" >
-                        </ly-field>
+                        </ly-field>   
 
-                        <ly-field>
-                            <input lyNativeControl placeholder="Funções" [(ngModel)]="experiencia.funcoes" >
-                        </ly-field>                        
+                    </div>
+                    <div>
+
+                        <ly-field style="width: 100%;">
+                            <input lyNativeControl placeholder="Funcao" [(ngModel)]="experiencia.funcao" >
+                        </ly-field>                          
+
 
                     </div>
                 </ly-card-content>

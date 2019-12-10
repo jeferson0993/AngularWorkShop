@@ -1,3 +1,7 @@
+main section .container ly-card ly-card-content{
+    height: 50ch;
+}
+
 main section h2 {
     margin-top: 2ch;
     display: flex;
