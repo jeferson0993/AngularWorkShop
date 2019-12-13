@@ -3,7 +3,7 @@
 Uma aplicação WEB usando ANGULAR, na arquitetura MVC para complementar apresentação para a disciplina de *Novas Tecnologias em Desenvolvimento Web*, ministrada pelo professor **Marinaldo Oliveira Santos**, do curso **Tecnólogo em Sistemas para Internet**.
 
 ***
-## [DEMOSTRAÇÃO DA APLICAÇÃO ONLINE](https://jeferson0993.github.io/angularjs)
+## [DEMOSTRAÇÃO DA APLICAÇÃO ONLINE](https://jeferson0993.github.io/AngularWorkShop/home)
 
 ## [APRESENTAÇÃO ONLINE DO WORKSHOP](http://bit.do/angularjf)
 ***
