@@ -40,10 +40,10 @@ const styles = (theme: ThemeVariables) => ({
 export class EmpresaDetailComponent implements OnInit {
 
   readonly classes = this.theme.addStyleSheet(styles);
-  Vagas: any;
+  //Vagas: Vaga[];
 
   @Input() empresa: Empresa;
-  @Input() vaga: Vaga;
+  //@Input() vaga: Vaga;
   
   constructor(
     private route: ActivatedRoute,
@@ -62,7 +62,7 @@ export class EmpresaDetailComponent implements OnInit {
     this.empresaService.getEmpresa(id)
       .subscribe(empresa => {
         this.empresa = empresa;
-        this.Vagas = empresa.vagas;     
+        //this.Vagas = empresa.vagas;     
         console.log('empresa: ', this.empresa);
       });
   }
@@ -82,14 +82,14 @@ export class EmpresaDetailComponent implements OnInit {
     if (!nome) { return; }
     this.vagaService.addVaga({ nome } as Vaga, empresa_id)
       .subscribe(vaga => {
-        console.info(this.Vagas);
+        //console.info(this.Vagas);
         console.warn(vaga);
-        this.Vagas.push(vaga);
+        //this.Vagas.push(vaga);
       });
   }
 
   delete(vaga: Vaga): void {
-    this.Vagas = this.Vagas.filter(h => h !== vaga);
+    //this.Vagas = this.Vagas.filter(h => h !== vaga);
     this.vagaService.deleteVaga(vaga).subscribe();
   }
 

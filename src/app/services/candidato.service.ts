@@ -16,11 +16,11 @@ export class CandidatoService {
 
   constructor(private http: HttpClient) { }
 
-  getCandidatos(): Observable<any> {
-    return this.http.get<any>(this.CandidatosUrl)
+  getCandidatos(): Observable<Candidato[]> {
+    return this.http.get<Candidato[]>(this.CandidatosUrl)
       .pipe(
         tap(_ => this.log('fetched Candidatos')),
-        catchError(this.handleError<any>('getCandidatos', []))
+        catchError(this.handleError<Candidato[]>('getCandidatos', []))
       );
   }
 
@@ -55,21 +55,21 @@ export class CandidatoService {
     );
   }
 
-  searchCandidatosByEstadoCivil(estadoCivil: string): Observable<any> {
+  searchCandidatosByEstadoCivil(estadoCivil: string): Observable<Candidato[]> {
     return this.http.get<Candidato[]>(`${this.CandidatosUrl}/nome/sexo/estado-civil/${estadoCivil}`).pipe(
       tap(_ => this.log(`found Candidatos matching "${estadoCivil}"`)),
       catchError(this.handleError<Candidato[]>('searchCandidatos', []))
     );
   }
 
-  searchCandidatosBySexo(sexo: string): Observable<any> {
+  searchCandidatosBySexo(sexo: string): Observable<Candidato[]> {
     return this.http.get<Candidato[]>(`${this.CandidatosUrl}/nome/sexo/${sexo}`).pipe(
       tap(_ => this.log(`found Candidatos matching "${sexo}"`)),
       catchError(this.handleError<Candidato[]>('searchCandidatos', []))
     );
   }
 
-  searchCandidatosByNome(nome: string): Observable<any> {
+  searchCandidatosByNome(nome: string): Observable<Candidato[]> {
     return this.http.get<Candidato[]>(`${this.CandidatosUrl}/nome/${nome}`).pipe(
       tap(_ => this.log(`found Candidatos matching "${nome}"`)),
       catchError(this.handleError<Candidato[]>('searchCandidatos', []))
@@ -77,6 +77,10 @@ export class CandidatoService {
   }
 
   addCandidato(Candidato: Candidato): Observable<Candidato> {
+    Candidato.cpf = ''; Candidato.dataNascimento = '';
+    Candidato.endereco = ''; Candidato.estadoCivil = '';
+    Candidato.experiencia = ''; Candidato.rg = '';
+    Candidato.sexo = ''; Candidato.telefone = '';
     return this.http.post<Candidato>(this.CandidatosUrl, Candidato, httpOptions).pipe(
       tap((newCandidato: Candidato) => this.log(`added Candidato => id=${newCandidato.id}`)),
       catchError(this.handleError<Candidato>('addCandidato'))
@@ -93,8 +97,9 @@ export class CandidatoService {
     );
   }
 
-  updateCandidato(Candidato: Candidato): Observable<any> {
-    return this.http.put(this.CandidatosUrl, Candidato, httpOptions).pipe(
+  updateCandidato(Candidato: Candidato): Observable<Candidato> {
+    console.log('candidato: ', Candidato);
+    return this.http.put(this.CandidatosUrl + '/' + Candidato.id, Candidato, httpOptions).pipe(
       tap(_ => this.log(`updated Candidato id=${Candidato.id}`)),
       catchError(this.handleError<any>('updateCandidato'))
     );

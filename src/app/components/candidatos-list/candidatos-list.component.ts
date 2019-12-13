@@ -41,7 +41,7 @@ export class CandidatosListComponent implements OnInit {
     this.candidatoService.getCandidatos()
     .subscribe(arrayCandidatos => {
       if (arrayCandidatos !== null) {
-        this.candidatos = arrayCandidatos.candidato;
+        this.candidatos = arrayCandidatos;
         console.log("candidatos:", this.candidatos);
       }
     });

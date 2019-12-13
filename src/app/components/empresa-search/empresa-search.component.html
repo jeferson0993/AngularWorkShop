@@ -34,29 +34,13 @@
         <ly-card-content>
             <section *ngIf="empresas !== null && empresas !== undefined">
                 <h2 lyTyp="display2" gutterBottom>empresas</h2>
-                <div *ngIf="empresas.length > 1; else elseBlock">
-                    <ly-card *ngFor="let empresa of empresas">
-                        <ly-card-content class="flex" style="justify-content: space-between;">
-                            <h2 lyTyp="title" gutterBottom>{{ empresa.razaoSocial }}</h2>
-                            <h5 lyTyp="body1">Cidade: {{empresa.cidade}}</h5>
-                            <h5 lyTyp="body1">Estado: {{empresa.uf}}</h5>
-                        </ly-card-content>
-                    </ly-card>
-                </div>
-
-                <ng-template #elseBlock>
-                    <div>
-                        <ly-card class="flex">
-
-                            <ly-card-content style="width: 80%;">
-                                <h2 lyTyp="title" gutterBottom>{{ empresas.razaoSocial }}</h2>
-                                <h5 lyTyp="body1">Cidade: {{empresas.cidade}}</h5>
-                                <h5 lyTyp="body1">Estado: {{empresas.uf}}</h5>
-                            </ly-card-content>
-
-                        </ly-card>
-                    </div>
-                </ng-template>
+                <ly-card *ngFor="let empresa of empresas">
+                    <ly-card-content class="flex" style="justify-content: space-between;">
+                        <h2 lyTyp="title" gutterBottom>{{ empresa.razaoSocial }}</h2>
+                        <h5 lyTyp="body1">Cidade: {{empresa.cidade}}</h5>
+                        <h5 lyTyp="body1">Estado: {{empresa.uf}}</h5>
+                    </ly-card-content>
+                </ly-card>
             </section>
         </ly-card-content>
     </ly-card>

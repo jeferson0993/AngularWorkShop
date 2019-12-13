@@ -43,7 +43,7 @@ export class EmpresasListComponent implements OnInit {
     this.empresaService.getEmpresas()
     .subscribe(arrayEmpresa => {
       if (arrayEmpresa !== null) {
-        this.empresas = arrayEmpresa.empresa;
+        this.empresas = arrayEmpresa;
         console.log("this.empresas:", this.empresas);
       }
     });

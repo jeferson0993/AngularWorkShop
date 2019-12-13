@@ -16,11 +16,11 @@ export class EmpresaService {
 
   constructor(private http: HttpClient) { }
 
-  getEmpresas (): Observable<any> {
-    return this.http.get<any>(this.empresasUrl)
+  getEmpresas (): Observable<Empresa[]> {
+    return this.http.get<Empresa[]>(this.empresasUrl)
       .pipe(
         tap(_ => this.log('fetched Empresas')),
-        catchError(this.handleError<any>('getEmpresas', []))
+        catchError(this.handleError<Empresa[]>('getEmpresas', []))
       );
   }
 
@@ -45,7 +45,7 @@ export class EmpresaService {
     );
   }
 
-  searchEmpresasByRazaoSocial(razaoSocial: string): Observable<any> {
+  searchEmpresasByRazaoSocial(razaoSocial: string): Observable<Empresa[]> {
     return this.http.get<Empresa[]>(`${this.empresasUrl}/razao-social/${razaoSocial}`)
       .pipe(
         tap(_ => this.log('fetched Empresas')),
@@ -53,7 +53,7 @@ export class EmpresaService {
       );
   }
 
-  searchEmpresasByEstado(estado: string): Observable<any> {
+  searchEmpresasByEstado(estado: string): Observable<Empresa[]> {
     return this.http.get<Empresa[]>(`${this.empresasUrl}/razao-social/estado/${estado}`)
       .pipe(
         tap(_ => this.log('fetched Empresas')),
@@ -61,7 +61,7 @@ export class EmpresaService {
       );
   }
 
-  searchEmpresasByCidade(cidade: string): Observable<any> {
+  searchEmpresasByCidade(cidade: string): Observable<Empresa[]> {
     return this.http.get<Empresa[]>(`${this.empresasUrl}/razao-social/estado/cidade/${cidade}`)
       .pipe(
         tap(_ => this.log('fetched Empresas')),
@@ -69,7 +69,7 @@ export class EmpresaService {
       );
   }
 
-  searchEmpresasByBairro(bairro: string): Observable<any> {
+  searchEmpresasByBairro(bairro: string): Observable<Empresa[]> {
     return this.http.get<Empresa[]>(`${this.empresasUrl}/razao-social/estado/cidade/bairro/${bairro}`)
       .pipe(
         tap(_ => this.log('fetched Empresas')),
@@ -78,6 +78,14 @@ export class EmpresaService {
   }
 
   addEmpresa (Empresa: Empresa): Observable<Empresa> {
+    Empresa.bairro = '';
+    Empresa.cep = '';
+    Empresa.cidade = '';
+    Empresa.cnpj = '';
+    Empresa.email = '';
+    Empresa.endereco = '';
+    Empresa.telefone = '';
+    Empresa.uf = '';    
     return this.http.post<Empresa>(this.empresasUrl, Empresa, httpOptions).pipe(
       tap((newEmpresa: Empresa) => this.log(`added Empresa => id=${newEmpresa.id}`)),
       catchError(this.handleError<Empresa>('addEmpresa'))
@@ -94,8 +102,9 @@ export class EmpresaService {
     );
   }
 
-  updateEmpresa (Empresa: Empresa): Observable<any> {
-    return this.http.put(this.empresasUrl, Empresa, httpOptions).pipe(
+  updateEmpresa (Empresa: Empresa): Observable<Empresa> {
+    console.log('update empresa: ', Empresa);
+    return this.http.put(this.empresasUrl + '/' + Empresa.id, Empresa, httpOptions).pipe(
       tap(_ => this.log(`updated Empresa id=${Empresa.id}`)),
       catchError(this.handleError<any>('updateEmpresa'))
     );

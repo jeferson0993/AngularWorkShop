@@ -61,7 +61,7 @@ export class CandidatoDetailComponent implements OnInit {
     this.candidatoService.getCandidato(id)
       .subscribe(candidato => {
         this.candidato = candidato;
-        this.experiencias = candidato.experiencias;     
+        //this.experiencias = candidato.experiencias;     
         console.log('candidato: ', this.candidato);
       });
   }

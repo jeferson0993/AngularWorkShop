@@ -34,7 +34,7 @@
         <ly-card-content>
             <section *ngIf="candidatos !== null && candidatos !== undefined">
                 <h2 lyTyp="display2" gutterBottom>candidatos</h2>
-                <div *ngIf="candidatos.length > 1; else elseBlock">
+                <div>
                     <ly-card *ngFor="let candidato of candidatos">
                         <ly-card-content class="flex" style="justify-content: space-between;">
                             <h2 lyTyp="title" gutterBottom>{{ candidato.nome }}</h2>
@@ -43,20 +43,6 @@
                         </ly-card-content>
                     </ly-card>
                 </div>
-
-                <ng-template #elseBlock>
-                    <div>
-                        <ly-card class="flex">
-
-                            <ly-card-content style="width: 80%;">
-                                <h2 lyTyp="title" gutterBottom>{{ candidatos.nome }}</h2>
-                                <h5 lyTyp="body1">Sexo: {{candidatos.sexo}}</h5>
-                                <h5 lyTyp="body1">Estado civil: {{candidatos.estadoCivil}}</h5>
-                            </ly-card-content>
-
-                        </ly-card>
-                    </div>
-                </ng-template>
             </section>
         </ly-card-content>
     </ly-card>
