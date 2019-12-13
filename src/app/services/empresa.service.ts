@@ -12,7 +12,7 @@ const httpOptions = {
 @Injectable({ providedIn: 'root' })
 export class EmpresaService {
 
-  private empresasUrl = 'http://localhost:8080/AngularWorkshopBackend/empresas';
+  private empresasUrl = 'https://fierce-escarpment-08191.herokuapp.com/api/v1/empresas';
 
   constructor(private http: HttpClient) { }
 

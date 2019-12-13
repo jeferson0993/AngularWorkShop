@@ -6,7 +6,7 @@
                     <h2 lyTyp="display1" gutterBottom>{{ empresa.id }} - {{ empresa.razaoSocial | uppercase }}</h2>
                     <div class="flex">
                         <ly-field style="width: 90%;">
-                            <input [(ngModel)]="empresa.razaoSocial"  lyNativeControl placeholder="razao social">
+                            <input [(ngModel)]="empresa.razaoSocial" lyNativeControl placeholder="razao social">
                         </ly-field>
                     </div>
                     <div class="flex">
@@ -59,8 +59,8 @@
                 </ly-card-content>
 
 
-                <ly-card-content>
-                    <section *ngIf="empresa.vagas !== null && empresa.vagas !== undefine">
+                <!--ly-card-content>
+                    <section *ngIf="empresa.vagas !== null && empresa.vagas !== undefined">
                         <h2 lyTyp="display2" gutterBottom>Vagas</h2>
                         <div *ngIf="empresa.vagas.length > 1; else elseBlock">
                             <ly-card *ngFor="let vaga of empresa.vagas">
@@ -81,21 +81,19 @@
                                 <ly-card class="flex">
 
                                     <ly-card-content style="width: 80%;">
-                                        <h2 lyTyp="title" gutterBottom>{{ empresa.vagas.nome }}</h2>
+                                        <h2 lyTyp="title" gutterBottom>{{ }}</h2>
                                     </ly-card-content>
 
                                     <ly-card-actions disableActionSpacing>
-                                        <button ly-button outlined color="white"
-                                            routerLink="/vaga-detail/{{vaga.id}}">Editar</button>
-                                        <button ly-button outlined color="warn" title="delete vaga"
-                                            (click)="delete(vaga)" style="margin-left: 5ch;">Excluir</button>
+                                        <button ly-button outlined color="white" routerLink="/vaga-detail/{{vaga.id}}">Editar</button>
+                                        <button ly-button outlined color="warn" title="delete vaga" (click)="delete(vaga)" style="margin-left: 5ch;">Excluir</button>
                                     </ly-card-actions>
 
                                 </ly-card>
                             </div>
                         </ng-template>
                     </section>
-                </ly-card-content>
+                </ly-card-content -->
 
                 <ly-card-actions disableActionSpacing>
                     <button ly-button outlined color="primary" (click)="save()">Salvar Empresa</button>

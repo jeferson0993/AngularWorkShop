@@ -39,7 +39,7 @@ const styles = (theme: ThemeVariables) => ({
 export class CandidatoDetailComponent implements OnInit {
 
   readonly classes = this.theme.addStyleSheet(styles);
-  experiencias: Experiencia[];
+  experiencias: any;
 
   @Input() candidato: Candidato;
   @Input() experiencia: Experiencia;

@@ -12,7 +12,7 @@ const httpOptions = {
 @Injectable({ providedIn: 'root' })
 export class VagaService {
 
-  private vagasUrl = 'http://localhost:8080/AngularWorkshopBackend/vagas';
+  private vagasUrl = 'https://fierce-escarpment-08191.herokuapp.com/api/v1/vagas';
 
   constructor(private http: HttpClient) { }
 

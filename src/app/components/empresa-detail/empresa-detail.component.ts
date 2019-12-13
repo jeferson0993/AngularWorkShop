@@ -40,7 +40,7 @@ const styles = (theme: ThemeVariables) => ({
 export class EmpresaDetailComponent implements OnInit {
 
   readonly classes = this.theme.addStyleSheet(styles);
-  Vagas: Vaga[];
+  Vagas: any;
 
   @Input() empresa: Empresa;
   @Input() vaga: Vaga;

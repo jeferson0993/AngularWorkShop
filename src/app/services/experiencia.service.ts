@@ -12,7 +12,7 @@ const httpOptions = {
 @Injectable({ providedIn: 'root' })
 export class ExperienciaService {
 
-  private experienciasUrl = 'http://localhost:8080/AngularWorkshopBackend/experiencias';
+  private experienciasUrl = 'https://fierce-escarpment-08191.herokuapp.com/api/v1/experiencias';
 
   constructor(private http: HttpClient) { }
 

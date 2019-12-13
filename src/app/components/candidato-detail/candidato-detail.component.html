@@ -1,36 +1,36 @@
 <main>
     <div *ngIf="candidato">
-        <div class="container">            
+        <div class="container">
             <ly-card>
                 <ly-card-content>
                     <h2 lyTyp="display1" gutterBottom>{{ candidato.id }} - {{ candidato.nome | uppercase }}</h2>
-                    <div class="flex">                                                
+                    <div class="flex">
                         <ly-field style="width: 90%;">
-                            <input [(ngModel)]="candidato.nome" lyNativeControl placeholder="nome" >
+                            <input [(ngModel)]="candidato.nome" lyNativeControl placeholder="nome">
                         </ly-field>
                     </div>
                     <div class="flex">
                         <ly-field>
-                            <input lyNativeControl [(ngModel)]="candidato.cpf" placeholder="cpf" >
+                            <input lyNativeControl [(ngModel)]="candidato.cpf" placeholder="cpf">
                         </ly-field>
                         <ly-field>
-                            <input lyNativeControl [(ngModel)]="candidato.rg" placeholder="rg" >
-                        </ly-field>                       
-                    </div>
-                    <div class="flex">
-                        <ly-field>
-                            <input lyNativeControl [(ngModel)]="candidato.dataNascimento" placeholder="data de nascimento" >
-                        </ly-field>
-                        <ly-field>
-                            <input lyNativeControl [(ngModel)]="candidato.estadoCivil" placeholder="estado civil" >
+                            <input lyNativeControl [(ngModel)]="candidato.rg" placeholder="rg">
                         </ly-field>
                     </div>
                     <div class="flex">
                         <ly-field>
-                            <input lyNativeControl [(ngModel)]="candidato.endereco" placeholder="endereço" >
+                            <input lyNativeControl [(ngModel)]="candidato.dataNascimento" placeholder="data de nascimento">
                         </ly-field>
                         <ly-field>
-                            <input lyNativeControl [(ngModel)]="candidato.telefone" placeholder="telefone" >
+                            <input lyNativeControl [(ngModel)]="candidato.estadoCivil" placeholder="estado civil">
+                        </ly-field>
+                    </div>
+                    <div class="flex">
+                        <ly-field>
+                            <input lyNativeControl [(ngModel)]="candidato.endereco" placeholder="endereço">
+                        </ly-field>
+                        <ly-field>
+                            <input lyNativeControl [(ngModel)]="candidato.telefone" placeholder="telefone">
                         </ly-field>
                     </div>
                 </ly-card-content>
@@ -48,12 +48,12 @@
                             </ly-grid>
                         </ly-grid>
                     </ly-card>
-                </ly-card-content>                
+                </ly-card-content>
 
-                <ly-card-content>
-                    <section *ngIf="candidato.experiencias !== null && candidato.experiencias !== undefine">
+                <!--ly-card-content>
+                    <section *ngIf="candidato.experiencias !== null && candidato.experiencias !== undefined">
                         <h2 lyTyp="display2" gutterBottom>experiencias</h2>
-                        
+
                         <div *ngIf="candidato.experiencias.length > 1; else elseBlock">
                             <ly-card *ngFor="let experiencia of candidato.experiencias">
                                 <ly-card-content class="flex" style="justify-content: space-between;">
@@ -71,19 +71,19 @@
                                 <ly-card class="flex">
 
                                     <ly-card-content style="width: 60%;">
-                                        <h2 lyTyp="title" gutterBottom>{{ candidato.experiencias.cargo }}</h2>
+                                        <h2 lyTyp="title" gutterBottom>{{ }}</h2>
                                     </ly-card-content>
 
                                     <ly-card-actions disableActionSpacing>
-                                        <button ly-button outlined color="white" routerLink="/experiencia-detail/{{candidato.experiencias.id}}">Editar</button>
-                                        <button ly-button outlined color="warn" title="delete experiencia" (click)="delete(candidato.experiencias)"  style="margin-left: 5ch;">Excluir</button>
+                                        <button ly-button outlined color="white" routerLink="/experiencia-detail/{{ }}">Editar</button>
+                                        <button ly-button outlined color="warn" title="delete experiencia" (click)="delete()" style="margin-left: 5ch;">Excluir</button>
                                     </ly-card-actions>
 
                                 </ly-card>
                             </div>
                         </ng-template>
                     </section>
-                </ly-card-content>
+                </ly-card-content-->
 
                 <ly-card-actions disableActionSpacing>
                     <button ly-button outlined color="primary" (click)="save()">Salvar</button>

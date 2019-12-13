@@ -1,5 +1,5 @@
 <div id="candidato-search-component">
-  
+
     <ly-card>
         <ly-card-content style="padding: 2ch;">
             <h2 lyTyp="headline" gutterBottom color="primary">Pesquisar candidatos por nome</h2>
@@ -9,7 +9,7 @@
             </ly-field>
         </ly-card-content>
     </ly-card>
-    
+
     <ly-card>
         <ly-card-content style="padding: 2ch;">
             <h2 lyTyp="headline" gutterBottom color="primary">Pesquisar candidatos por sexo</h2>
@@ -19,7 +19,7 @@
             </ly-field>
         </ly-card-content>
     </ly-card>
-    
+
     <ly-card>
         <ly-card-content style="padding: 2ch;">
             <h2 lyTyp="headline" gutterBottom color="primary">Pesquisar candidatos por estado civil</h2>
@@ -29,10 +29,10 @@
             </ly-field>
         </ly-card-content>
     </ly-card>
-    
+
     <ly-card>
         <ly-card-content>
-            <section *ngIf="candidatos !== null && candidatos !== undefine">
+            <section *ngIf="candidatos !== null && candidatos !== undefined">
                 <h2 lyTyp="display2" gutterBottom>candidatos</h2>
                 <div *ngIf="candidatos.length > 1; else elseBlock">
                     <ly-card *ngFor="let candidato of candidatos">
