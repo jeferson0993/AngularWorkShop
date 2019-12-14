@@ -10,13 +10,12 @@ Uma aplicação WEB usando ANGULAR, na arquitetura MVC para complementar apresen
 
 ## Sobre o projeto
 
-### Esta é uma aplicação Web desenvolvida na arquitetura MVC e é composta das funções:
+### Esta é uma aplicação Web desenvolvida em angular 7 e é composta das funções:
 
-* ***Login**, Modulo empresa e candidato;*
-* ***Listar** informações de vagas de emprego, empresas e candidatos;*
-* ***Cadastrar** informações de vagas de emprego, empresas e candidatos;*
-* ***Editar** informações de vagas de emprego, empresas e candidatos;*
-* ***Excluir** vagas, empresas e candidatos;*
+* ***Listar** vagas de emprego, empresas, candidatos e experiencias;*
+* ***Cadastrar** vagas de emprego, empresas, candidatos e experiencias;*
+* ***Editar** informações de vagas de emprego, empresas, candidatos e experiencias;*
+* ***Excluir** vagas, empresas, candidatos e experiencias;*
 
 #### O projeto tem o objetivo de demonstrar as principais características do framework angular.
 
@@ -52,10 +51,9 @@ Este projeto está licenciado sob a licença MIT - consulte o arquivo [LICENSE.m
 
 ## Backend:
 
-## [web service desenvolvido com java e com persistencia de dados em MySql](https://github.com/jeferson0993/Web-Service-REST-java)
+## [web service desenvolvido com java e com persistencia de dados em JPA](https://github.com/jeferson0993/Web-Service-REST-java)
 
-### API END POINTS LOCAIS:
-http://localhost:8080/WebServiceWorkshop/candidatos
-http://localhost:8080/WebServiceWorkshop/empresas
+### API UTILIZADA:
+https://fierce-escarpment-08191.herokuapp.com/api/v1/{empresas|candidatos}
 
 ---
