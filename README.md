@@ -27,8 +27,8 @@ Uma aplicação WEB usando ANGULAR, na arquitetura MVC para complementar apresen
 
 * [Github](https://github.com/jeferson0993)
 * [Codepen](https://codepen.io/jeferson0993)
-* [Linkedin](https://www.linkedin.com/in/jeferson-ferreira-4a036b143)
-* [Portifolio](http://www.jeferson.tk)
+* [Linkedin](https://www.linkedin.com/in/jeferson0993)
+* [Portifolio](http://www.jeferson.gq)
 * jeferson0993@gmail.com
 
 ---
